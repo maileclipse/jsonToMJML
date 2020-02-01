@@ -3,10 +3,10 @@
  * https://github.com/mjmlio/mjml
  */
 
-const jsonToXML = ({ tagName, attributes, children, content }) => {
+const jsonToMJML = ({ tagName, attributes, children, content }) => {
     const subNode =
         children && children.length > 0
-            ? children.map(jsonToXML).join('\n')
+            ? children.map(jsonToMJML).join('\n')
             : content || ''
 
     const stringAttrs = Object.keys(attributes)
@@ -18,4 +18,4 @@ const jsonToXML = ({ tagName, attributes, children, content }) => {
         : ` ${stringAttrs}>`}${subNode}</${tagName}>`
 }
 
-export default jsonToXML
+export default jsonToMJML
